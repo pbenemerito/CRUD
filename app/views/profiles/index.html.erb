@@ -1,0 +1,25 @@
+
+    <table class="table table-striped">
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Address</th>
+          <th>Phone</th>
+          <th>Action</th>
+        </tr>
+      </thead>
+      <tbody>
+  <% @profiles.each do |profile| %>
+    <tr>
+      <td><%= profile.name %></td>
+      <td><%= profile.address %></td>
+      <td><%= profile.phone %></td>
+      <td><%= link_to 'Show', profile_path(profile) %></td>
+      <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
+      <td><%= link_to 'Delete', profile_path(profile), model: :delete, data:{confirm:"Are you sure?"} %></td>
+    </tr>
+  <% end %>
+      </tbody>
+    </table>
+    </br>
+    <%= link_to 'Add profile', new_profile_path, class:"btn btn-primary" %>
